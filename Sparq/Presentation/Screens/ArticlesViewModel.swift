@@ -42,7 +42,7 @@ class ArticlesViewModel {
     var state: ArticlesViewModelState = .loading
     @ObservationIgnored var service: ArticlesService
 
-    init(service: ArticlesService = MockArticlesService()) {
+    init(service: ArticlesService = APIArticlesService()) {
         self.service = service
     }
 
