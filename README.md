@@ -20,8 +20,15 @@
 - **Data Layer:** Includes mock service, API service, DTOs, and mapping protocols.
 - **Unit Testing:** Covers data and presentation layers.
 
-# Release 1.0
-## Feat
+# Releases
+## 2.0
+### Feat
+    * Add Articles caching with SwiftData
+    * Add Articles list View pull to refresh mechanism
+    * Add SwiftDataArticlesService to handle local storage
+
+## 1.0
+### Feat
     * Add Articles list view
     * Add Article detail view
     * Add mock service
