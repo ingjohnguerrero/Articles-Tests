@@ -36,9 +36,20 @@ struct ArticlesView: View {
     }
 
     @ViewBuilder func makeListView(with articles: [Article]) -> some View {
-        List(articles) { article in
-            NavigationLink(value: article) {
-                Text(article.title)
+        if articles.isEmpty {
+            ScrollView {
+                Text("No articles found.")
+            }.refreshable {
+                await viewModel.onStart()
+            }
+        } else {
+            List(articles) { article in
+                NavigationLink(value: article) {
+                    Text(article.title)
+                }
+            }
+            .refreshable {
+                await viewModel.onStart()
             }
         }
     }
