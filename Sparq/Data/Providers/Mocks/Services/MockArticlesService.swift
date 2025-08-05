@@ -7,12 +7,9 @@
 
 import Foundation
 
-protocol ArticlesService {
-    func fetchArticles() async throws -> [Article]
-}
-
 actor MockArticlesService: ArticlesService {
 
+    private let shouldReturnError: Bool
     private let responseString = """
         [
             { "title": "Innovative AI Grant Proposal", "description": "A proposal focused on securing funding for an artificial intelligence research initiative." },
@@ -23,7 +20,14 @@ actor MockArticlesService: ArticlesService {
         ]
         """
 
+    init(shouldReturnError: Bool = false) {
+        self.shouldReturnError = shouldReturnError
+    }
+
     func fetchArticles() async throws -> [Article] {
+        if shouldReturnError {
+            throw URLError(.badServerResponse)
+        }
         let jsonData = responseString.data(using: .utf8)!
         let decoder = JSONDecoder()
         let articleDTOs: [ArticleDTO] = try! decoder.decode([ArticleDTO].self, from: jsonData)
