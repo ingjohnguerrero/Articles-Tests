@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		72503A4C2E42217D00388273 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 72503A4B2E42217800388273 /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		7250398B2E42174A00388273 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		7250397D2E42174800388273 /* Sparq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sparq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7250398A2E42174A00388273 /* SparqTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SparqTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		725039942E42174A00388273 /* SparqUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SparqUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		72503A4B2E42217800388273 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +80,7 @@
 		725039742E42174800388273 = {
 			isa = PBXGroup;
 			children = (
+				72503A4B2E42217800388273 /* README.md */,
 				7250397F2E42174800388273 /* Sparq */,
 				7250398D2E42174A00388273 /* SparqTests */,
 				725039972E42174A00388273 /* SparqUITests */,
@@ -212,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72503A4C2E42217D00388273 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

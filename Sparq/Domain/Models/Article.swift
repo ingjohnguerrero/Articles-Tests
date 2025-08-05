@@ -9,3 +9,17 @@ struct Article {
     var title: String
     var description: String
 }
+
+extension Article: Identifiable {
+    var id: String { title }
+}
+
+extension Article: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(title)
+    }
+    
+    static func == (lhs: Article, rhs: Article) -> Bool {
+        lhs.title == rhs.title
+    }
+}
