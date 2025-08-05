@@ -10,10 +10,16 @@ import SwiftUI
 struct ArticlesView: View {
     @State var viewModel: ArticlesViewModel = .init()
     var body: some View {
-        makeBody()
-            .task {
-                await viewModel.onStart()
-            }
+        NavigationStack {
+            makeBody()
+                .navigationTitle("Articles")
+                .task {
+                    await viewModel.onStart()
+                }
+                .navigationDestination(for: Article.self) { article in
+                    ArticleDetailsView(article: article)
+                }
+        }
     }
 
     @ViewBuilder func makeBody() -> some View {
@@ -22,11 +28,17 @@ struct ArticlesView: View {
                 case .loading:
                     Text("Loading...")
                 case .loaded(let articles):
-                    List(articles) { article in
-                        Text(article.title)
-                    }
+                    makeListView(with: articles)
                 case .error(let error):
                     Text("Error: \(error)")
+            }
+        }
+    }
+
+    @ViewBuilder func makeListView(with articles: [Article]) -> some View {
+        List(articles) { article in
+            NavigationLink(value: article) {
+                Text(article.title)
             }
         }
     }
