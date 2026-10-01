@@ -5,21 +5,18 @@
 //  Created by John Guerrero on 8/5/25.
 //
 
-struct Article {
+struct Article: Identifiable {
+    var id: Int
     var title: String
     var description: String
 }
 
-extension Article: Identifiable {
-    var id: String { title }
-}
-
 extension Article: Hashable {
     func hash(into hasher: inout Hasher) {
-        hasher.combine(title)
+        hasher.combine(id)
     }
     
     static func == (lhs: Article, rhs: Article) -> Bool {
-        lhs.title == rhs.title
+        lhs.id == rhs.id
     }
 }

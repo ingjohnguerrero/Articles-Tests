@@ -44,9 +44,12 @@ struct ArticlesView: View {
             }
         } else {
             List(articles) { article in
-                NavigationLink(value: article) {
-                    Text(article.title)
+                HStack {
+                    NavigationLink(value: article) {
+                        Text(article.title)
+                    }
                 }
+                .background(article.id.isMultiple(of: 2) ? .red : .green)
             }
             .refreshable {
                 await viewModel.onStart()

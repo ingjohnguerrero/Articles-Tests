@@ -19,7 +19,7 @@ final class ArticleDataModel {
 }
 
 extension ArticleDataModel: ArticleMapper {
-    func map() -> Article {
-        Article(title: self.title, description: self.content)
+    func map(id: Int) -> Article {
+        Article(id: id, title: self.title, description: self.content)
     }
 }

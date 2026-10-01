@@ -27,6 +27,7 @@ struct ArticleDetailsView: View {
 #Preview {
     ArticleDetailsView(
         article: Article(
+            id: 0,
             title: "Innovative AI Grant Proposal",
             description: "A proposal focused on securing funding for an artificial intelligence research initiative."
         )

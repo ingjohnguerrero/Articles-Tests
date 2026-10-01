@@ -12,7 +12,7 @@ struct ArticleDTO: Decodable {
 }
 
 extension ArticleDTO: ArticleMapper {
-    func map() -> Article {
-        Article(title: self.title, description: self.description)
+    func map(id: Int) -> Article {
+        Article(id: id, title: self.title, description: self.description)
     }
 }

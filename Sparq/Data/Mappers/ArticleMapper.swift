@@ -6,5 +6,5 @@
 //
 
 protocol ArticleMapper {
-    func map() -> Article
+    func map(id: Int) -> Article
 }

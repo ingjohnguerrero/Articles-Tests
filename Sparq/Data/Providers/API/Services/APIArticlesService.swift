@@ -25,8 +25,8 @@ actor APIArticlesService: ArticlesService {
         let data = try Data(contentsOf: apiURL)
         let decoder = JSONDecoder()
         let articleDTOs = try decoder.decode([ArticleDTO].self, from: data)
-        let articles = articleDTOs.map { articleDTO in
-            articleDTO.map()
+        let articles = articleDTOs.enumerated().map { index, articleDTO in
+            articleDTO.map(id: index)
         }
         return articles
     }

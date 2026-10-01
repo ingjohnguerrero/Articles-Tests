@@ -31,8 +31,8 @@ actor MockArticlesService: ArticlesService {
         let jsonData = responseString.data(using: .utf8)!
         let decoder = JSONDecoder()
         let articleDTOs: [ArticleDTO] = try! decoder.decode([ArticleDTO].self, from: jsonData)
-        let articles = articleDTOs.map { dto in
-            dto.map()
+        let articles = articleDTOs.enumerated().map { index, dto in
+            dto.map(id: index)
         }
         return articles
     }

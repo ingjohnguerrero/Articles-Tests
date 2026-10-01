@@ -49,8 +49,8 @@ actor SwiftDataArticlesService {
 
 extension SwiftDataArticlesService: ArticlesService {
     func fetchArticles() async throws -> [Article] {
-        try fetchDataArticles().map { dataModel in
-            dataModel.map()
+        try fetchDataArticles().enumerated().map { index, dataModel in
+            dataModel.map(id: index)
         }
     }
 }
